@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Forms</title>
+        <style>
+            input{
+                margin-bottom: 5px;
+            }
+        </style>
+        <script>
+            function check() {
+                const pword = document.getElementById('pword');
+                const cpword = document.getElementById('cpword');
+                if (cpword.value === pword.value) {
+                    cpword.setCustomValidity('');
+                } else {
+                    cpword.setCustomValidity('Password does not match');
+                }
+            }
+        </script>
+    </head>
+    <body> 
+        <form> 
+            <h1>Register</h1>
+            <label for="fname">First Name:  </label>  
+            <input type="text" id="fname" name="fname" value="" pattern="[A-zÀ-ž\s]{1,32}"><br>
+            <label for="lname">Last Name:  </label>  
+            <input type="text" id="lname" name="lname" value="" pattern="[A-zÀ-ž\s]{1,32}"><!--fname lname normally no num or special chara-->    
+            <h1>Login Credentials</h1>
+            <label for="uname">Username:  </label>  
+            <input type="text" id="uname" name="username" value=""><br>  
+            <label for="pword">Password:</label>  
+            <input type="password" id="pword" name="password" onChange="check()"><br>
+            <label for="confpword">Confirm Password: </label>  
+            <input type="password" id="cpword" name="confirmpassword" onChange="check()"><br><!--simple match check-->
+            <input type="submit" value="Register">     
+        </form>
+    </body>
+</html>     
